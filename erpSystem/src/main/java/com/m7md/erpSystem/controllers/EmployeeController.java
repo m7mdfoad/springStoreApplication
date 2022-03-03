@@ -27,7 +27,7 @@ public class EmployeeController {
 		this.employeeService = employeeService;
 	}
 	
-	@GetMapping
+	@GetMapping("/all")
 	public ResponseEntity<List<Employee>> getAllEmployees(){
 		List<Employee> employees= employeeService.finEmployees();
 		return new ResponseEntity<>(employees, HttpStatus.OK);
