@@ -15,20 +15,24 @@ public class ErpSystemApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ErpSystemApplication.class, args);
 	}
-	
+	String allowedOrigins="http://localhost:4200";
+	String[] allowedHeaders=new String[]{"Origin", "Access-Control-Allow-Origin", "Content-Type",
+			"Accept", "Authorization", "Origin, Accept", "X-Requested-With",
+			"Access-Control-Request-Method", "Access-Control-Request-Headers"};
+	String[] exposedHeaders=new String[]{"Origin", "Content-Type", "Accept", "Authorization",
+			"Access-Control-Allow-Origin", "Access-Control-Allow-Origin", "Access-Control-Allow-Credentials"};
+	String[] allowedMethods=new String[]{"GET", "POST", "PUT", "DELETE", "OPTIONS"};
 	@Bean
 	public CorsFilter corsFilter() {
 		CorsConfiguration corsConfiguration = new CorsConfiguration();
 		corsConfiguration.setAllowCredentials(true);
-		corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
-		corsConfiguration.setAllowedHeaders(Arrays.asList("Origin", "Access-Control-Allow-Origin", "Content-Type",
-				"Accept", "Authorization", "Origin, Accept", "X-Requested-With",
-				"Access-Control-Request-Method", "Access-Control-Request-Headers"));
-		corsConfiguration.setExposedHeaders(Arrays.asList("Origin", "Content-Type", "Accept", "Authorization",
-				"Access-Control-Allow-Origin", "Access-Control-Allow-Origin", "Access-Control-Allow-Credentials"));
-		corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+		corsConfiguration.setAllowedOrigins(Arrays.asList(allowedOrigins));
+		corsConfiguration.setAllowedHeaders(Arrays.asList(allowedHeaders));
+		corsConfiguration.setExposedHeaders(Arrays.asList(exposedHeaders));
+		corsConfiguration.setAllowedMethods(Arrays.asList(allowedMethods));
 		UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource = new UrlBasedCorsConfigurationSource();
 		urlBasedCorsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration);
 		return new CorsFilter(urlBasedCorsConfigurationSource);
+		
 }
 }

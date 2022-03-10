@@ -1,13 +1,13 @@
 package com.m7md.erpSystem.repos;
 
-import java.util.Optional;
-
+import com.m7md.erpSystem.models.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.m7md.erpSystem.models.Employee;
+import java.util.Optional;
 
-public interface EmployeeRepo extends JpaRepository<Employee,Long>{
+public interface EmployeeRepo extends JpaRepository<Employee, Long> {
 
-	Optional<Employee> findEmployeeById(Long id);
+    Optional<Employee> findEmployeeById(Long id);
+
 
 }
