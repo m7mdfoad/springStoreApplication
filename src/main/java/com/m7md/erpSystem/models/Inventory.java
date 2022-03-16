@@ -1,6 +1,6 @@
 package com.m7md.erpSystem.models;
 
-import com.m7md.erpSystem.enums.Category;
+import com.m7md.erpSystem.enums.ProductCategory;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -25,7 +25,7 @@ public class Inventory implements Serializable {
     @Column(nullable = false, updatable = true)
     private int quantity;
     @Column(nullable = false, updatable = true)
-    private Category category;
+    private ProductCategory productCategory;
 
     public Inventory() {
     }
@@ -34,7 +34,7 @@ public class Inventory implements Serializable {
         this.product_id = id;
     }
 
-    public Inventory(long id, String name, String brand, String type, String shelf, double price, int quantity, Category category) {
+    public Inventory(long id, String name, String brand, String type, String shelf, double price, int quantity, ProductCategory productCategory) {
         this.product_id = id;
         this.name = name;
         this.brand = brand;
@@ -42,7 +42,7 @@ public class Inventory implements Serializable {
         this.shelf = shelf;
         this.price = price;
         this.quantity = quantity;
-        this.category = category;
+        this.productCategory = productCategory;
     }
 
     public long getId() {
@@ -97,12 +97,12 @@ public class Inventory implements Serializable {
         this.quantity = quantity;
     }
 
-    public Category getCategory() {
-        return category;
+    public ProductCategory getProductCategory() {
+        return productCategory;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setProductCategory(ProductCategory productCategory) {
+        this.productCategory = productCategory;
     }
 
     @Override
@@ -115,7 +115,7 @@ public class Inventory implements Serializable {
                 ", shelf='" + shelf + '\'' +
                 ", price=" + price +
                 ", quantity=" + quantity +
-                ", category=" + category +
+                ", category=" + productCategory +
                 '}';
     }
 }

@@ -1,5 +1,5 @@
 package com.m7md.erpSystem.enums;
 
-public enum Category {
+public enum ProductCategory {
     KEYS, ACCESSORIES, AUDIO, SERVICE, LIGHTING
 }

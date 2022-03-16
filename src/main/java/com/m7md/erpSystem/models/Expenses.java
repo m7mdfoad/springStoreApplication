@@ -1,6 +1,6 @@
 package com.m7md.erpSystem.models;
 
-import com.m7md.erpSystem.enums.Category;
+import com.m7md.erpSystem.enums.ProductCategory;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -31,7 +31,7 @@ public class Expenses implements Serializable {
     @Column(nullable = false, updatable = true)
     private Date PurchaseDate;
     @Column(nullable = false, updatable = true)
-    private Category category;
+    private ProductCategory productCategory;
 
     public Expenses() {
     }
@@ -40,7 +40,7 @@ public class Expenses implements Serializable {
         this.id = id;
     }
 
-    public Expenses(long id, String name, String brand, String type, String description, String agent, double price, Date purchaseDate, Category category) {
+    public Expenses(long id, String name, String brand, String type, String description, String agent, double price, Date purchaseDate, ProductCategory productCategory) {
         this.id = id;
         this.name = name;
         this.brand = brand;
@@ -49,7 +49,7 @@ public class Expenses implements Serializable {
         this.agent = agent;
         this.price = price;
         PurchaseDate = purchaseDate;
-        this.category = category;
+        this.productCategory = productCategory;
     }
 
     public long getId() {
@@ -112,12 +112,12 @@ public class Expenses implements Serializable {
         PurchaseDate = purchaseDate;
     }
 
-    public Category getCategory() {
-        return category;
+    public ProductCategory getProductCategory() {
+        return productCategory;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setProductCategory(ProductCategory productCategory) {
+        this.productCategory = productCategory;
     }
 
     @Override
@@ -131,7 +131,7 @@ public class Expenses implements Serializable {
                 ", agent='" + agent + '\'' +
                 ", price=" + price +
                 ", PurchaseDate=" + PurchaseDate +
-                ", category=" + category +
+                ", category=" + productCategory +
                 '}';
     }
 }
