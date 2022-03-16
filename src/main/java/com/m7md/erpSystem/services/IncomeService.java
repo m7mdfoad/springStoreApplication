@@ -1,5 +1,6 @@
 package com.m7md.erpSystem.services;
 
+import com.m7md.erpSystem.exceptions.IncomeNotFoundException;
 import com.m7md.erpSystem.models.Income;
 import com.m7md.erpSystem.repos.IncomeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class IncomeService {
     }
 
     public Income findIncomeById(long id) {
-        return incomeRepo.getById(id);
+        return incomeRepo.findById(id).orElseThrow(()->new IncomeNotFoundException("Income with id no: "+ id+ " is not found"));
     }
 
     public Income upgradeIncome(Income income) {

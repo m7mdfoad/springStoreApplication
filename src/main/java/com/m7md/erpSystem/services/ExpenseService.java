@@ -1,7 +1,6 @@
 package com.m7md.erpSystem.services;
 
 import com.m7md.erpSystem.exceptions.ExpenseNotFoundException;
-import com.m7md.erpSystem.models.Employee;
 import com.m7md.erpSystem.models.Expenses;
 import com.m7md.erpSystem.repos.ExpenseRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,19 +19,23 @@ public class ExpenseService {
         this.expenseRepo = expenseRepo;
     }
 
-    public Expenses addEmployee(Expenses expenses){
+    public Expenses addEmployee(Expenses expenses) {
         return expenseRepo.save(expenses);
     }
-    public List<Expenses> findAllExpenses(){
+
+    public List<Expenses> findAllExpenses() {
         return expenseRepo.findAll();
     }
-    public Expenses findExpenseById(long id){
-        return expenseRepo.findById(id).orElseThrow(()->new ExpenseNotFoundException("no expense with id number: "+id));
+
+    public Expenses findExpenseById(long id) {
+        return expenseRepo.findById(id).orElseThrow(() -> new ExpenseNotFoundException("no expense with id number: " + id));
     }
-    public Expenses updateExpense(Expenses expenses){
+
+    public Expenses updateExpense(Expenses expenses) {
         return expenseRepo.save(expenses);
     }
-    public void deleteExpenseById(long id){
+
+    public void deleteExpenseById(long id) {
         expenseRepo.deleteById(id);
     }
 }
