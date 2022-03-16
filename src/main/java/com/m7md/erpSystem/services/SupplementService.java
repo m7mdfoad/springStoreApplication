@@ -1,6 +1,5 @@
 package com.m7md.erpSystem.services;
 
-import com.m7md.erpSystem.exceptions.IncomeNotFoundException;
 import com.m7md.erpSystem.exceptions.SupplementNotFoundException;
 import com.m7md.erpSystem.models.Supplement;
 import com.m7md.erpSystem.repos.SupplementRepo;
@@ -22,7 +21,7 @@ public class SupplementService {
     }
 
     public Supplement findSupplementById(long id) {
-        return supplementRepo.findById(id).orElseThrow(()->new SupplementNotFoundException("Supplement with id no: "+ id+ " is not found"));
+        return supplementRepo.findById(id).orElseThrow(() -> new SupplementNotFoundException("Supplement with id no: " + id + " is not found"));
     }
 
     public Supplement upgradeSupplement(Supplement supplement) {

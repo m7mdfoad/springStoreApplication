@@ -1,6 +1,5 @@
 package com.m7md.erpSystem.services;
 
-import com.m7md.erpSystem.exceptions.IncomeNotFoundException;
 import com.m7md.erpSystem.exceptions.ProductNotFoundException;
 import com.m7md.erpSystem.models.Inventory;
 import com.m7md.erpSystem.repos.InventoryRepo;
@@ -19,19 +18,24 @@ public class InventoryService {
         super();
         this.inventoryRepo = inventoryRepo;
     }
-    public Inventory addProduct(Inventory inventory){
+
+    public Inventory addProduct(Inventory inventory) {
         return inventoryRepo.save(inventory);
     }
-    public List<Inventory> findAllProducts(){
+
+    public List<Inventory> findAllProducts() {
         return inventoryRepo.findAll();
     }
-    public Inventory findProductById(long id){
-        return inventoryRepo.findById(id).orElseThrow(()->new ProductNotFoundException("Product with id no: "+ id+ " is not found"));
+
+    public Inventory findProductById(long id) {
+        return inventoryRepo.findById(id).orElseThrow(() -> new ProductNotFoundException("Product with id no: " + id + " is not found"));
     }
-    public Inventory upgradeProduct(Inventory inventory){
+
+    public Inventory upgradeProduct(Inventory inventory) {
         return inventoryRepo.save(inventory);
     }
-    public void deleteProduct(long id){
+
+    public void deleteProduct(long id) {
         inventoryRepo.deleteById(id);
     }
 }

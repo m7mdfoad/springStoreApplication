@@ -28,7 +28,7 @@ public class IncomeService {
     }
 
     public Income findIncomeById(long id) {
-        return incomeRepo.findById(id).orElseThrow(()->new IncomeNotFoundException("Income with id no: "+ id+ " is not found"));
+        return incomeRepo.findById(id).orElseThrow(() -> new IncomeNotFoundException("Income with id no: " + id + " is not found"));
     }
 
     public Income upgradeIncome(Income income) {

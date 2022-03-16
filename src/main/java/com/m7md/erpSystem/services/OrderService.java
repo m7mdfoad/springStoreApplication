@@ -1,6 +1,5 @@
 package com.m7md.erpSystem.services;
 
-import com.m7md.erpSystem.exceptions.IncomeNotFoundException;
 import com.m7md.erpSystem.exceptions.OrderNotFoundException;
 import com.m7md.erpSystem.models.Order;
 import com.m7md.erpSystem.repos.OrderRepo;
@@ -29,7 +28,7 @@ public class OrderService {
     }
 
     public Order findOrderById(long id) {
-        return orderRepo.findById(id).orElseThrow(()->new OrderNotFoundException("Order with id no: "+ id+ " is not found"));
+        return orderRepo.findById(id).orElseThrow(() -> new OrderNotFoundException("Order with id no: " + id + " is not found"));
     }
 
     public Order upgradeOrder(Order order) {

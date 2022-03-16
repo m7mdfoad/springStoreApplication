@@ -1,14 +1,14 @@
 package com.m7md.erpSystem.exceptions;
 
-public class SupplementNotFoundException extends RuntimeException{
+public class SupplementNotFoundException extends RuntimeException {
 
-	/**
-	 *
-	 */
-	private static final long serialVersionUID = 1L;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
 
-	public SupplementNotFoundException(String message) {
-		super(message);
-	}
+    public SupplementNotFoundException(String message) {
+        super(message);
+    }
 
 }
